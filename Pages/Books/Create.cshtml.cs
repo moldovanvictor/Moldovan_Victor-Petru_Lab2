@@ -21,17 +21,19 @@ namespace Moldovan_Victor_Petru_Lab2.Pages.Books
 
         public IActionResult OnGet()
         {
+            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID", "LastName");
             return Page();
         }
 
         [BindProperty]
         public Book Book { get; set; } = default!;
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Book == null || Book == null)
+            if (!ModelState.IsValid || _context.Book == null || Book == null)
             {
                 return Page();
             }

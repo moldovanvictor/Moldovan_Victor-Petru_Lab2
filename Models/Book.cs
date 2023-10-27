@@ -9,10 +9,11 @@ namespace Moldovan_Victor_Petru_Lab2.Models
         public int ID { get; set; }
 
         [Display(Name = "Book Title")]
-        public string Title { get; set; }
-        [ForeignKey("AuthorFK")]
-        public Author Author { get; set; }
-        public int AuthorFK { get; set; }
+        public string? Title { get; set; }
+
+        public int? AuthorID { get; set; }
+        public Author? Author { get; set; }
+
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
 

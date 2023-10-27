@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Moldovan_Victor_Petru_Lab2.Data;
 
@@ -11,9 +12,10 @@ using Moldovan_Victor_Petru_Lab2.Data;
 namespace Moldovan_Victor_Petru_Lab2.Migrations
 {
     [DbContext(typeof(Moldovan_Victor_Petru_Lab2Context))]
-    partial class Moldovan_Victor_Petru_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20231027091426_incercareLabprof")]
+    partial class incercareLabprof
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,6 +64,7 @@ namespace Moldovan_Victor_Petru_Lab2.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");

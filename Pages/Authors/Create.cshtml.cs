@@ -21,8 +21,6 @@ namespace Moldovan_Victor_Petru_Lab2.Pages.Authors
 
         public IActionResult OnGet()
         {
-            ViewData["AuthorID"] = new SelectList(_context.Set<Publisher>(), "ID",
-"LastName");
             return Page();
         }
 
