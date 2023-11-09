@@ -40,7 +40,7 @@ namespace Moldovan_Victor_Petru_Lab2.Pages.Categories
                     CategoryID = id.Value;
                     Category category = CategoryData.Categories
                     .Where(i => i.ID == id.Value).Single();
-                    category.BookCategories.Select(b => b.Book);
+                    CategoryData.Books=category.BookCategories.Select(b => b.Book);
                 }
             }
         }

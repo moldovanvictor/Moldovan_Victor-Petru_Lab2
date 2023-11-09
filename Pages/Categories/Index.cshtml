@@ -48,18 +48,12 @@
     <h3>Books in Selected Category</h3>
     <table class="table">
 
-        @foreach (var item in Model.CategoryData.Categories)
-        {
-            string selectedRow = "";
-            if (item.ID == Model.CategoryID)
-            {
-                selectedRow = "table-success";
-            }
-            <tr class="@selectedRow">
+        
+            <tr>
 
                 <td>
                     @{
-                        foreach (var b in item.BookCategories.Select(c => c.Book))
+                        foreach (var b in Model.CategoryData.Books)
                         {
 
                             @b.Title @: @b.Author.FullName
@@ -69,6 +63,5 @@
                     }
                 </td>
             </tr>
-        }
     </table>
 }
