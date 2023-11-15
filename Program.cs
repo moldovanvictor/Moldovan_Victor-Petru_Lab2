@@ -5,7 +5,12 @@ using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizeFolder("/Books");
+    options.Conventions.AllowAnonymousToPage("/Books/Index");
+    options.Conventions.AllowAnonymousToPage("/Books/Details");
+});
 builder.Services.AddDbContext<Moldovan_Victor_Petru_Lab2Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Moldovan_Victor_Petru_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Moldovan_Victor_Petru_Lab2Context' not found.")));
 
