@@ -9,6 +9,9 @@ namespace Moldovan_Victor_Petru_Lab2.Models
         public int ID { get; set; }
 
         [Display(Name = "Book Title")]
+
+        [RegularExpression(@"^[A-Z][a-zA-Z\s]*$", ErrorMessage = "Titlul trebuie să înceapă cu majusculă și să conțină doar litere mici și spații.")]
+        [StringLength(150, MinimumLength = 3, ErrorMessage = "Titlul trebuie să aibă între 3 și 150 de caractere.")]
         public string? Title { get; set; }
 
         public int? AuthorID { get; set; }
